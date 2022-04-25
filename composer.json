@@ -13,11 +13,10 @@
     ],
     "require": {
         "php": "^8.1",
-        "myerscode/acorn-framework": "@dev"
+        "myerscode/acorn-framework": "dev-main"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4",
-        "phpunit/phpunit": "^9"
+        "myerscode/acorn-testing": "dev-main"
     },
     "autoload": {
         "psr-4": {

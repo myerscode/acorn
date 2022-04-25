@@ -1,1 +1,1 @@
-# Acorn CLI App
+# Acorn App
