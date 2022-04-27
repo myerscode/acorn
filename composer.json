@@ -9,7 +9,7 @@
         }
     ],
     "bin": [
-        "acorn"
+        "bin/acorn"
     ],
     "require": {
         "php": "^8.1",
