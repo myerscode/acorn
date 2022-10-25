@@ -18,6 +18,7 @@
         "myerscode/acorn-framework": "dev-main"
     },
     "require-dev": {
+        "myerscode/acorn-cli": "dev-main",
         "myerscode/acorn-testing": "dev-main"
     },
     "autoload": {

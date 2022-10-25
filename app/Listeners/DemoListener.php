@@ -17,6 +17,6 @@ class DemoListener extends Listener
 
     public function __invoke(DemoEvent $event): void
     {
-        $this->output->info(DemoEvent::class . ' event emitted at ' . $event->timestamp);
+        $this->output->info(DemoEvent::class . ' event emitted on ' . date('jS F Y \a\t H:i:s', $event->timestamp));
     }
 }
