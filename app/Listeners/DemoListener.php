@@ -3,12 +3,12 @@
 namespace App\Listeners;
 
 use App\Events\DemoEvent;
-use Myerscode\Acorn\Foundation\Console\Output;
+use Myerscode\Acorn\Foundation\Console\Display\DisplayOutput as Output;
 use Myerscode\Acorn\Framework\Events\Listener;
 
 class DemoListener extends Listener
 {
-    protected $listensFor = DemoEvent::class;
+    protected string|array $listensFor = DemoEvent::class;
 
     public function __construct(protected Output $output)
     {
