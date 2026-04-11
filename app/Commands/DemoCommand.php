@@ -4,6 +4,7 @@ namespace App\Commands;
 
 use App\Events\DemoEvent;
 use Myerscode\Acorn\Framework\Console\Command;
+use Override;
 
 use function Myerscode\Acorn\Foundation\bag;
 use function Myerscode\Acorn\Foundation\config;
@@ -11,14 +12,15 @@ use function Myerscode\Acorn\Foundation\emit;
 
 class DemoCommand extends Command
 {
-
-    protected string $signature = 'demo';
-
+    #[Override]
     protected string $description = 'A demo command.';
+
+    #[Override]
+    protected string $signature = 'demo';
 
     public function handle(): void
     {
-        emit(DemoEvent::class, time() + rand(0, 1000));
+        emit(DemoEvent::class, time() + random_int(0, 1000));
 
         $corgis = config('demo.corgis');
 
@@ -26,6 +28,6 @@ class DemoCommand extends Command
 
         $corgiCount = count($corgis);
 
-        $this->output->writeln("There are $corgiCount Corgis in Demo Config - their names are $names!");
+        $this->output->writeln(sprintf('There are %d Corgis in Demo Config - their names are %s!', $corgiCount, $names));
     }
 }
