@@ -18,7 +18,7 @@ class DemoCommand extends Command
     #[Override]
     protected string $signature = 'demo';
 
-    public function handle(): void
+    public function handle(): int
     {
         emit(DemoEvent::class, time() + random_int(0, 1000));
 
@@ -29,5 +29,7 @@ class DemoCommand extends Command
         $corgiCount = count($corgis);
 
         $this->output->writeln(sprintf('There are %d Corgis in Demo Config - their names are %s!', $corgiCount, $names));
+
+        return 0;
     }
 }

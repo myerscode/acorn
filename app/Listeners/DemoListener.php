@@ -11,9 +11,6 @@ use Override;
 
 class DemoListener extends Listener
 {
-    #[Override]
-    protected string|array $listensFor = DemoEvent::class;
-
     public function __construct(protected Output $output)
     {
         //
@@ -22,5 +19,11 @@ class DemoListener extends Listener
     public function __invoke(DemoEvent $demoEvent): void
     {
         $this->output->info(DemoEvent::class . ' event emitted on ' . date('jS F Y \a\t H:i:s', $demoEvent->timestamp));
+    }
+
+    #[Override]
+    public function listensFor(): array|string
+    {
+        return DemoEvent::class;
     }
 }
