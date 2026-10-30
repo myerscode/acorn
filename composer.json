@@ -2,6 +2,7 @@
     "name": "myerscode/acorn",
     "description": "A framework for creating powerful PHP CLI applications",
     "type": "library",
+    "license": "MIT",
     "authors": [
         {
             "name": "Fred Myerscough",
@@ -14,12 +15,14 @@
         "acorn"
     ],
     "require": {
-        "php": "^8.1",
+        "php": "^8.5",
         "myerscode/acorn-framework": "dev-main"
     },
     "require-dev": {
+        "laravel/pint": "^1.0",
         "myerscode/acorn-cli": "dev-main",
-        "myerscode/acorn-testing": "dev-main"
+        "myerscode/acorn-testing": "dev-main",
+        "phpstan/phpstan": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -37,6 +40,10 @@
         "sort-packages": true
     },
     "scripts": {
-        "tests": "./vendor/bin/phpunit --testdox tests"
+        "lint": "vendor/bin/pint",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=512M",
+        "tests": "vendor/bin/phpunit --testdox --no-coverage --colors=always",
+        "test-coverage": "vendor/bin/phpunit --testdox --colors=always",
+        "security-audit": "@composer audit"
     }
 }
