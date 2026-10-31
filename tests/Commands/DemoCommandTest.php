@@ -7,32 +7,21 @@ namespace Tests\Commands;
 use App\Events\DemoEvent;
 use App\Listeners\DemoListener;
 use Myerscode\Acorn\Foundation\Console\Display\DisplayOutput;
-use Myerscode\Acorn\Testing\Interactions\InteractsWithCommands;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 use Tests\BaseTestCase;
 
 final class DemoCommandTest extends BaseTestCase
 {
-    use InteractsWithCommands;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        // The test harness loads core framework config but not the skeleton's
-        // app/Config, so provide the demo config the command reads. Mirrors
-        // app/Config/Demo.php.
-        $this->application()->container()->get('config')->store()->set('demo', ['corgis' => ['Gerald', 'Rupert']]);
-    }
-
     public function testOutputsTheCorgisFromConfig(): void
     {
-        $output = $this->call('demo');
-
-        // The demo reads two corgis (Gerald, Rupert) from app/Config/Demo.php.
-        $this->assertStringContainsString('There are 2 Corgis', $output);
-        $this->assertStringContainsString('Gerald and Rupert', $output);
+        // app/Config/Demo.php is loaded automatically by the test harness, so
+        // no manual config override is needed. Corgis: Gerald and Rupert.
+        $this->runCommand('demo', ['--greeter' => 'Arthur'])
+            ->assertSuccessful()
+            ->assertOutputContains('There are 2 Corgis')
+            ->assertOutputContains('Gerald and Rupert')
+            ->assertOutputContains('Welcome, Arthur!');
     }
 
     public function testTheEventListenerHandlesTheEvent(): void
