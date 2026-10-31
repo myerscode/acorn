@@ -11,9 +11,9 @@ if (file_exists(__DIR__.'/vendor/autoload.php')) {
     // might be installed globally
     require __DIR__.'/../../autoload.php';
 } else {
-    throw new Exception('Unable to locale vendor autoload.php');
+    throw new Exception('Unable to locate vendor autoload.php');
 }
 
-$application = new Kernel( $_ENV['APP_BASE_PATH'] ?? __DIR__ . '/app' );
+$application = new Kernel($_ENV['APP_BASE_PATH'] ?? __DIR__ . '/app');
 
 exit($application->run());

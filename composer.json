@@ -1,7 +1,7 @@
 {
     "name": "myerscode/acorn",
-    "description": "A framework for creating powerful PHP CLI applications",
-    "type": "library",
+    "description": "A skeleton for building powerful PHP CLI applications with Acorn",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {

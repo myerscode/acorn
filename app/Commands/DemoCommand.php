@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Commands;
 
 use App\Events\DemoEvent;
@@ -20,7 +22,7 @@ class DemoCommand extends Command
 
     public function handle(): int
     {
-        emit(DemoEvent::class, time() + random_int(0, 1000));
+        emit(DemoEvent::class, time());
 
         $corgis = config('demo.corgis');
 
