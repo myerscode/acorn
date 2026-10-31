@@ -2,7 +2,7 @@
 [![Total Downloads](https://poser.pugx.org/myerscode/acorn/downloads)](https://packagist.org/packages/myerscode/acorn)
 [![PHP Version Require](http://poser.pugx.org/myerscode/acorn/require/php)](https://packagist.org/packages/myerscode/acorn)
 [![License](https://poser.pugx.org/myerscode/acorn/license)](https://github.com/myerscode/acorn/blob/main/LICENSE)
-[![Tests](https://github.com/myerscode/acorn/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/myerscode/acorn/actions/workflows/tests.yml)
+[![Tests](https://github.com/myerscode/acorn/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/myerscode/acorn/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/myerscode/acorn/graph/badge.svg)](https://codecov.io/gh/myerscode/acorn)
 
 # Acorn
